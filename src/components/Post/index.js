@@ -5,7 +5,7 @@ import {db} from "../../firebase/firebase";
 function Post({post}) {
     const user = useContext(UserContext);
     const [inputValue, setInputValue] = useState('');
-    const {author, comments, createdAt, likes, postContent, shares, tags} = post.data;
+    const {author, authorId, comments, createdAt, likes, postContent, shares, tags} = post.data;
 
     const addLike = () => {
         db.collection('posts').doc(post['id']).update({
@@ -40,7 +40,7 @@ function Post({post}) {
         <div className="post">
             <div className="post__information">
                 <img alt="avatar" />
-                <p>@{author}</p>
+                <a href={`/profile/${author}`}><p>@{author}</p></a>
                 <p>2m</p>
             </div>
             <div className="post__text">
