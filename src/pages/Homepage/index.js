@@ -10,22 +10,33 @@ function Homepage() {
     const user = useContext(UserContext);
     const [posts, setPosts] = useState([]);
 
-    const fetchPosts = async () => {
-        let posts = [];
-
-        await db.collection("posts").get()
-            .then(item => {
-                item.docs.map(item => posts.push({id: item.id, data: item.data()}))
-            })
-
-        setPosts(posts);
-    }
-
     useEffect(() => {
+        async function fetchPosts() {
+            let posts = [];
+
+            await db.collection("posts").get()
+                .then(item => {
+                    item.docs.map(item => posts.push({id: item.id, data: item.data()}))
+                })
+
+            setPosts(posts);
+        }
+
         fetchPosts();
     }, [])
 
     useEffect(() => {
+        async function fetchPosts() {
+            let posts = [];
+
+            await db.collection("posts").get()
+                .then(item => {
+                    item.docs.map(item => posts.push({id: item.id, data: item.data()}))
+                })
+
+            setPosts(posts);
+        }
+
         fetchPosts();
     }, [posts])
 
@@ -33,7 +44,7 @@ function Homepage() {
         <main>
             <div>
                 <div className="profile">
-                    {user && <img src={user.photoURL} />}
+                    {user && <img src={user.photoURL} alt="avatar" />}
                     <h2>{user ? user.displayName : 'Anonymous'}</h2>
                 </div>
                 <Navigation />

@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import {UserContext} from "../../providers/UserProvider";
 import {db} from "../../firebase/firebase";
 
@@ -40,7 +40,7 @@ function Post({post}) {
         <div className="post">
             <div className="post__information">
                 <img alt="avatar" />
-                <a href={`/profile/${author}`}><p>@{author}</p></a>
+                <a href={`/profile/${authorId}`}><p>@{author}</p></a>
                 <p>2m</p>
             </div>
             <div className="post__text">
