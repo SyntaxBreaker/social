@@ -1,9 +1,10 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {UserContext} from "../../providers/UserProvider";
 import {db} from "../../firebase/firebase";
 
 function Post({post}) {
     const user = useContext(UserContext);
+    const [inputValue, setInputValue] = useState('');
     const {author, comments, createdAt, likes, postContent, shares, tags} = post.data;
 
     const addLike = () => {
@@ -19,6 +20,20 @@ function Post({post}) {
         db.collection('posts').doc(post['id']).update({
             likes: [...likes]
         })
+    }
+
+    const onChange = event => {
+        setInputValue(event.target.value);
+    }
+
+    const addComment = event => {
+        event.preventDefault();
+
+        db.collection('posts').doc(post['id']).update({
+            comments: [...comments, {author: user.uid, message: inputValue}]
+        })
+
+        setInputValue('');
     }
 
     return (
@@ -41,7 +56,9 @@ function Post({post}) {
                 </div>
             </div>
             <div className="post__comment__input">
-                <input name="newComment" />
+                <form onSubmit={event => addComment(event)}>
+                    <input name="newComment" placeholder="Enter comment here" value={inputValue} onChange={event => onChange(event)} />
+                </form>
             </div>
         </div>
     )
