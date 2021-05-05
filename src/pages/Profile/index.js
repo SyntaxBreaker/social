@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {useParams} from 'react-router-dom';
 import {db} from '../../firebase/firebase';
 import Post from "../../components/Post";
@@ -18,7 +18,9 @@ function Profile() {
                 })
 
             setPosts(posts);
-            setAuthor(posts[0].data.author);
+            if(posts.length !== 0) {
+                setAuthor(posts[0].data.author);
+            }
         }
 
         fetchPosts();
