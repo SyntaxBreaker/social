@@ -3,6 +3,7 @@ import {UserContext} from "../../providers/UserProvider";
 import {signOut} from "../../firebase/firebase";
 import {Link} from "react-router-dom";
 import './index.scss';
+import * as Icon from 'react-feather';
 
 function Navigation() {
     const user = useContext(UserContext);
@@ -11,15 +12,15 @@ function Navigation() {
         <div className="navigation">
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/"><Icon.Home /> Home</Link>
                 </li>
                 {user &&
                     <>
                         <li>
-                            <Link to={`/profile/${user.uid}`}>Profile</Link>
+                            <Link to={`/profile/${user.uid}`}><Icon.User /> Profile</Link>
                         </li>
                         <li>
-                            <button onClick={signOut}>Log out</button>
+                            <button onClick={signOut}><Icon.LogOut/> Log out</button>
                         </li>
                     </>
                 }
