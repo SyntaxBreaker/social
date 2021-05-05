@@ -1,6 +1,5 @@
 .navigation {
 
-
   ul {
     list-style-type: none;
 
@@ -12,6 +11,14 @@
         color: black;
         font-size: 32px;
       }
+
+      button {
+        background-color: transparent;
+        border: none;
+        font-size: 32px;
+        font-weight: 400;
+      }
+
     }
 
   }
