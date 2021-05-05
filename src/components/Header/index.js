@@ -1,16 +1,17 @@
 import React, {useContext} from 'react';
 import {signInWithGoogle} from "../../firebase/firebase";
 import {UserContext} from "../../providers/UserProvider";
+import './index.scss';
 
 function Header() {
     const user = useContext(UserContext);
 
     return (
-        <div>
+        <header>
             <img src="" alt="logo" />
-            <input type="text" />
+            <input type="text" placeholder="Search on ..." />
             {!user ? <button onClick={signInWithGoogle}>Log in</button> : <button>Tweet</button>}
-        </div>
+        </header>
     )
 }
 

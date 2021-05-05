@@ -1,4 +1,32 @@
 header {
+  width: 100%;
   display: flex;
-  align-content: space-around;
+  justify-content: space-between;
+  padding: 1.5% 5%;
+  background-color: white;
+
+  input {
+    width: 25%;
+    border-radius: 9px;
+    border: 1px solid aliceblue;
+    background-color: whitesmoke;
+    padding: 5px 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    width: 10%;
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 9px;
+    padding: 5px 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
