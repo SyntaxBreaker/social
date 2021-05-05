@@ -4,6 +4,7 @@ import {db} from "../../firebase/firebase";
 import Post from "../../components/Post";
 import Navigation from "../../components/Navigation";
 import AddPost from "../../components/AddPost";
+import './index.scss';
 
 
 function Homepage() {
@@ -42,14 +43,14 @@ function Homepage() {
 
     return (
         <main>
-            <div>
-                <div className="profile">
+            <div className="main__left">
+                <div className="main__left__profile">
                     {user && <img src={user.photoURL} alt="avatar" />}
                     <h2>{user ? user.displayName : 'Anonymous'}</h2>
                 </div>
                 <Navigation />
             </div>
-            <div>
+            <div className="main__right">
                 <AddPost />
                 {posts.map(post => <Post post={post} key={post.id} />)}
             </div>
