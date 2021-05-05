@@ -3,7 +3,7 @@ main {
   flex-direction: row;
 
   .main__left {
-    width: 40%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,19 +14,22 @@ main {
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
 
       img {
+        height: 75%;
         border-radius: 50%;
       }
 
       h2 {
         margin-left: 20px;
+        font-size: 20px;
       }
     }
   }
 
   .main__right {
-    width: 60%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
