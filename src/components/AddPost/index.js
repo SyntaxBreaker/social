@@ -2,6 +2,7 @@ import React, {useContext, useState} from "react";
 import {UserContext} from "../../providers/UserProvider";
 import firebase from "firebase";
 import {db} from "../../firebase/firebase";
+import './index.scss';
 
 function AddPost() {
     const user = useContext(UserContext);
