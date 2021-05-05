@@ -2,8 +2,14 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1% 5%;
   background-color: white;
+
+  a {
+    color: dodgerblue;
+    text-decoration: none;
+  }
 
   input {
     width: 25%;

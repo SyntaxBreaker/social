@@ -8,7 +8,7 @@ function Header() {
 
     return (
         <header>
-            <img src="" alt="logo" />
+            <a href="/"><img src="" alt="logo" /></a>
             <input type="text" placeholder="Search on ..." />
             {!user ? <button onClick={signInWithGoogle}>Log in</button> : <button>Tweet</button>}
         </header>
