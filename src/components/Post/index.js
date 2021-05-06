@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react';
 import {UserContext} from "../../providers/UserProvider";
 import {db} from "../../firebase/firebase";
 import Modal from "../Modal";
+import './index.scss';
+import * as Icon from 'react-feather';
 
 function Post({post}) {
     const user = useContext(UserContext);
@@ -46,16 +48,18 @@ function Post({post}) {
         <div className="post">
             <div className="post__information">
                 <img alt="avatar" />
-                <a href={`/profile/${authorId}`}><p>@{author}</p></a>
-                <p>2m</p>
+                <div>
+                    <a href={`/profile/${authorId}`}><p className="post__information__author">{author}</p></a>
+                    <p className="post__information__date">2m</p>
+                </div>
             </div>
             <div className="post__text">
                 <p>{postContent}</p>
             </div>
             <div className="post__more__information">
                 <div>
+                    {user ? likes.includes(user.uid) ? <button onClick={() => removeLike()}><Icon.Heart size={18} /></button> : <button onClick={() => addLike()}><Icon.Heart size={18} /></button> : <button onClick={() => setShowModal(true)}><Icon.Heart size={18} /></button>}
                     {likes.length}
-                    {user ? likes.includes(user.uid) ? <button onClick={() => removeLike()}>Unlike</button> : <button onClick={() => addLike()}>Like</button> : <button onClick={() => setShowModal(true)}>Like</button>}
                 </div>
                 <div>
                     <p>{comments ? `${comments.length} comments` : '0 comments'}</p>
