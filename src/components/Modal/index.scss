@@ -1,0 +1,51 @@
+.modal {
+  position: absolute;
+  margin: 0 auto;
+  left: 0%;
+  top: 30%;
+  width: 100%;
+  padding: 1rem;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+
+  * {
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    button {
+      width: 35%;
+      border: none;
+      background-color: white;
+      color: black;
+      border-radius: 9px;
+      padding: 5px 20px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .modal {
+    width: 50%;
+    top: 30%;
+    left: 25%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .modal {
+    width: 35%;
+    top: 30%;
+    left: 35%;
+  }
+}

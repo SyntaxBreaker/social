@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {signInWithGoogle} from "../../firebase/firebase";
 import {UserContext} from "../../providers/UserProvider";
+import './index.scss';
 
 function Modal({handleClose}) {
     const user = useContext(UserContext);
@@ -13,11 +14,13 @@ function Modal({handleClose}) {
     }
 
     return (
-        <div>
+        <div className="modal">
             <h2>Hello, Friend!</h2>
             <p>Please log in!</p>
-            <button onClick={login}>Log in with google!</button>
-            <button onClick={handleClose}>Close</button>
+            <div>
+                <button onClick={login}>Log in with google!</button>
+                <button onClick={handleClose}>Close</button>
+            </div>
         </div>
     )
 }
