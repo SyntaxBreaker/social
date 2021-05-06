@@ -19,6 +19,7 @@ function AddPost() {
 
     const onSubmit = async event => {
         event.preventDefault();
+        const now = new Date().toLocaleDateString();
 
         const post = {
             author: user.displayName,
@@ -26,7 +27,7 @@ function AddPost() {
             avatar: user.photoURL,
             postContent: newPostContent,
             tags: newPostTags,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            createdAt: now,
             comments: [],
             likes: [],
             shares: [],

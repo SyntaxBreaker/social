@@ -50,7 +50,7 @@ function Post({post}) {
                 <img src={avatar} alt="avatar" />
                 <div>
                     <a href={`/profile/${authorId}`}><p className="post__information__author">{author}</p></a>
-                    <p className="post__information__date">2m</p>
+                    <p className="post__information__date">{createdAt}</p>
                 </div>
             </div>
             <div className="post__text">
