@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {db} from '../../firebase/firebase';
 import Post from "../../components/Post";
+import './index.scss';
 
 function Profile() {
     const [posts, setPosts] = useState([]);
@@ -43,7 +44,7 @@ function Profile() {
 
     return (
         <div className="profile">
-            <div className="profile_information">
+            <div className="profile__information">
                 <h2>{author}</h2>
             </div>
             <div className="profile__posts">
