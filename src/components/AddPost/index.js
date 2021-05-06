@@ -21,6 +21,7 @@ function AddPost() {
         const post = {
             author: user.displayName,
             authorId: user.uid,
+            avatar: user.photoURL,
             postContent: newPostContent,
             tags: newPostTags,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
