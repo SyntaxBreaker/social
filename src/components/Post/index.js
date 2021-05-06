@@ -8,7 +8,7 @@ import * as Icon from 'react-feather';
 function Post({post}) {
     const user = useContext(UserContext);
     const [inputValue, setInputValue] = useState('');
-    const {author, authorId, comments, createdAt, likes, postContent, shares, tags} = post.data;
+    const {author, authorId, avatar, comments, createdAt, likes, postContent, shares, tags} = post.data;
     const [showModal, setShowModal] = useState(false);
 
     const addLike = () => {
@@ -47,7 +47,7 @@ function Post({post}) {
     return (
         <div className="post">
             <div className="post__information">
-                <img alt="avatar" />
+                <img src={avatar} alt="avatar" />
                 <div>
                     <a href={`/profile/${authorId}`}><p className="post__information__author">{author}</p></a>
                     <p className="post__information__date">2m</p>

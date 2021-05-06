@@ -6,14 +6,18 @@
   .post__information {
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     img {
       border-radius: 50%;
+      height: 5rem;
+      width: auto;
     }
 
     div {
       display: flex;
       flex-direction: column;
+      margin-left: .5rem;
 
       a {
         text-decoration: none;
@@ -24,13 +28,14 @@
       }
 
       .post__information__date {
+        margin-top: .5rem;
         color: silver;
       }
     }
   }
 
   .post__text {
-    margin: 10px 0;
+    margin: 1.5rem 0;
 
     p {
       font-weight: 500;
@@ -42,6 +47,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     margin: 10px 0;
     padding: 10px;
     border-top: 1px solid silver;
