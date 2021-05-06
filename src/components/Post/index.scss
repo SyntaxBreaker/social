@@ -55,8 +55,8 @@
         border: none;
         background-color: transparent;
 
-        svg {
-          color: crimson;
+        &:focus {
+          outline: none;
         }
       }
     }

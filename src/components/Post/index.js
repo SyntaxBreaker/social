@@ -58,7 +58,7 @@ function Post({post}) {
             </div>
             <div className="post__more__information">
                 <div>
-                    {user ? likes.includes(user.uid) ? <button onClick={() => removeLike()}><Icon.Heart size={18} /></button> : <button onClick={() => addLike()}><Icon.Heart size={18} /></button> : <button onClick={() => setShowModal(true)}><Icon.Heart size={18} /></button>}
+                    {user ? likes.includes(user.uid) ? <button onClick={() => removeLike()}><Icon.Heart color="red" size={18} /></button> : <button onClick={() => addLike()}><Icon.Heart color="black" size={18} /></button> : <button onClick={() => setShowModal(true)}><Icon.Heart color="black" size={18} /></button>}
                     {likes.length}
                 </div>
                 <div>
