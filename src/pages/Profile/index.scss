@@ -9,7 +9,15 @@
   }
 
   &__posts {
-    margin: 0 auto;
-    width: 75%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  .profile {
+    &__posts {
+      margin: 0 auto;
+      width: 75%;
+    }
   }
 }

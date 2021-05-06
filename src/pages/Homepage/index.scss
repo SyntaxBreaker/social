@@ -4,10 +4,7 @@ main {
   padding: 0 10px;
 
   .main__left {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: none;
 
     &__profile {
       margin: 10px;
@@ -29,7 +26,7 @@ main {
   }
 
   .main__right {
-    width: 65%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 10px 0;
@@ -41,5 +38,27 @@ main {
       }
     }
 
+  }
+}
+
+@media (min-width: 900px) {
+  main {
+    .main__left {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .main__right {
+      width: 65%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  main {
+    margin: 10px auto;
+    width: 75%;
   }
 }
