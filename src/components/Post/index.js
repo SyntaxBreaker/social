@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import {UserContext} from "../../providers/UserProvider";
 import {db} from "../../firebase/firebase";
 import Modal from "../Modal";
+import Comment from "../Comment";
 import './index.scss';
 import * as Icon from 'react-feather';
 
@@ -10,6 +11,7 @@ function Post({post}) {
     const [inputValue, setInputValue] = useState('');
     const {author, authorId, avatar, comments, createdAt, likes, postContent, shares, tags} = post.data;
     const [showModal, setShowModal] = useState(false);
+    const [showComments, setShowComments] = useState(false);
 
     const addLike = () => {
         db.collection('posts').doc(post['id']).update({
@@ -34,7 +36,7 @@ function Post({post}) {
         event.preventDefault();
 
         db.collection('posts').doc(post['id']).update({
-            comments: [...comments, {author: user.uid, message: inputValue}]
+            comments: [...comments, {author: user.uid, message: inputValue, avatar: user.photoURL, displayName: user.displayName}]
         })
 
         setInputValue('');
@@ -62,7 +64,7 @@ function Post({post}) {
                     {likes.length}
                 </div>
                 <div>
-                    <p>{comments ? `${comments.length} comments` : '0 comments'}</p>
+                    <p>{comments ? <button onClick={() => setShowComments(!showComments)}>{`${comments.length} comments`}</button> : '0 comments'}</p>
                 </div>
             </div>
             <div className="post__comment__input">
@@ -77,6 +79,7 @@ function Post({post}) {
                     </form>
                 }
             </div>
+            {(showComments && comments.length > 0) && comments.map(comment => <Comment comment={comment} key={comment.author+comment.message} />) }
             {(!user && showModal) && <Modal handleClose={handleClose} />}
         </div>
     )

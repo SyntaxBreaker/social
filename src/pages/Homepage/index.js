@@ -39,7 +39,7 @@ function Homepage() {
         }
 
         fetchPosts();
-    }, [posts])
+    }, [])
 
     return (
         <main>

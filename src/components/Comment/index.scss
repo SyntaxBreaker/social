@@ -1,0 +1,28 @@
+.comment {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.2rem;
+
+  &__avatar {
+    margin-right: 1rem;
+    img {
+      border-radius: 50%;
+      height: 5rem;
+      width: auto;
+    }
+  }
+
+  div {
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .comment__message {
+      margin-top: .3rem;
+      text-overflow: clip;
+    }
+  }
+
+}
