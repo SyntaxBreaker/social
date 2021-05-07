@@ -11,36 +11,24 @@ function Profile() {
 
     useEffect(() => {
         async function fetchPosts() {
-            let posts = [];
-
-            await db.collection("posts").where("authorId", "==", id).get()
-                .then(item => {
-                    item.docs.map(item => posts.push({id: item.id, data: item.data()}))
+            await db.collection("posts").onSnapshot(snapshot => {
+                let postsArray = snapshot.docs.map(doc => {
+                    return {
+                        id: doc.id,
+                        data: doc.data()
+                    }
                 })
 
-            setPosts(posts);
-            if(posts.length !== 0) {
-                setAuthor(posts[0].data.author);
-            }
+                setPosts(postsArray)
+                if(posts.length !== 0) {
+                    setAuthor(posts[0].data.author);
+                }
+            })
         }
 
         fetchPosts();
     }, [])
 
-    useEffect(() => {
-        async function fetchPosts() {
-            let posts = [];
-
-            await db.collection("posts").where("authorId", "==", id).get()
-                .then(item => {
-                    item.docs.map(item => posts.push({id: item.id, data: item.data()}))
-                })
-
-            setPosts(posts);
-        }
-
-        fetchPosts();
-    }, [posts])
 
     return (
         <div className="profile">
