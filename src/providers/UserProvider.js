@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {auth} from '../firebase/firebase';
+import {db} from '../firebase/firebase';
 
 export const UserContext = React.createContext(null);
 
@@ -15,6 +16,18 @@ export default function UserProvider({children}) {
                     photoURL,
                     uid
                 })
+
+                db.collection('users').doc(uid).get()
+                    .then((docSnapshot) => {
+                        if(!docSnapshot.exists) {
+                            db.collection("users").doc(uid).set({
+                                uid: uid,
+                                displayName: displayName,
+                                city: null,
+                                website: null
+                            })
+                        }
+                    })
             } else {
                 setUser(null);
             }
