@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import {db} from '../../firebase/firebase';
 import Post from "../../components/Post";
 import './index.scss';
+import * as Icon from 'react-feather';
 
 function Profile() {
     const [posts, setPosts] = useState([]);
@@ -43,8 +44,8 @@ function Profile() {
                     <>
                         <img src={profileInformation.avatar} />
                         <h2>{profileInformation.displayName}</h2>
-                        <p>{profileInformation.city}</p>
-                        <a href={`https://www.${profileInformation.website}`}><p>{profileInformation.website}</p></a>
+                        {profileInformation.city !== null && <p><Icon.MapPin /> {profileInformation.city}</p>}
+                        {profileInformation.website !== null && <a href={`https://www.${profileInformation.website}`}><p><Icon.Globe /> {profileInformation.website}</p></a>}
                     </>
                 ) : <h2>Profile not found</h2>}
             </div>
