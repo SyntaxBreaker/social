@@ -6,23 +6,29 @@ import './index.scss';
 
 function Profile() {
     const [posts, setPosts] = useState([]);
-    const [author, setAuthor] = useState(null);
+    const [profileInformation, setProfileInformation] = useState(null);
     const {id} = useParams();
 
     useEffect(() => {
-        async function fetchPosts() {
-            await db.collection("posts").onSnapshot(snapshot => {
-                let postsArray = snapshot.docs.map(doc => {
-                    return {
-                        id: doc.id,
-                        data: doc.data()
-                    }
-                })
+        async function fetchProfileInformation() {
+            await db.collection("users").doc(id).onSnapshot(doc => {
+                setProfileInformation(doc.data());
+            })
+        }
 
-                setPosts(postsArray)
-                if(posts.length !== 0) {
-                    setAuthor(posts[0].data.author);
-                }
+        fetchProfileInformation()
+    }, [])
+
+    useEffect(() => {
+        async function fetchPosts() {
+            await db.collection("posts").where("authorId", "==", id).onSnapshot(doc => {
+                let fetchedPosts = doc.docs.map(item => {
+                    return {
+                        id: item.id,
+                        data: item.data()
+                    }
+                });
+                setPosts(fetchedPosts);
             })
         }
 
@@ -33,7 +39,13 @@ function Profile() {
     return (
         <div className="profile">
             <div className="profile__information">
-                <h2>{author}</h2>
+                {profileInformation && (
+                    <>
+                        <h2>{profileInformation.displayName}</h2>
+                        <p>{profileInformation.city}</p>
+                        <a href={`https://www.${profileInformation.website}`}><p>{profileInformation.website}</p></a>
+                    </>
+                )}
             </div>
             <div className="profile__posts">
                 {posts.map(post => <Post post={post} key={post.id} />)}
