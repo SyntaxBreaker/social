@@ -39,13 +39,14 @@ function Profile() {
     return (
         <div className="profile">
             <div className="profile__information">
-                {profileInformation && (
+                {profileInformation ? (
                     <>
+                        <img src={profileInformation.avatar} />
                         <h2>{profileInformation.displayName}</h2>
                         <p>{profileInformation.city}</p>
                         <a href={`https://www.${profileInformation.website}`}><p>{profileInformation.website}</p></a>
                     </>
-                )}
+                ) : <h2>Profile not found</h2>}
             </div>
             <div className="profile__posts">
                 {posts.map(post => <Post post={post} key={post.id} />)}
