@@ -45,7 +45,7 @@
     align-items: inherit;
 
     &__information {
-      margin: 2.5rem auto;
+      margin: 3.2rem auto;
       width: 30%;
       height: 100%;
       padding: 3% 0;
@@ -54,7 +54,7 @@
       border-radius: 10px;
 
       img {
-        margin-top: -60px;
+        margin-top: -5rem;
       }
 
       svg {
@@ -76,14 +76,14 @@
 @media (min-width: 1440px) {
   .profile {
     margin: 0 auto;
-    width: 65%;
+    width: 75%;
 
     &__information {
-      width: 30%;
+      width: 25%;
     }
 
     &__posts {
-      width: 65%;
+      width: 70%;
     }
   }
 }
