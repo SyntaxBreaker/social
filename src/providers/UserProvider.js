@@ -23,6 +23,7 @@ export default function UserProvider({children}) {
                             db.collection("users").doc(uid).set({
                                 uid: uid,
                                 displayName: displayName,
+                                avatar: photoURL,
                                 city: null,
                                 website: null
                             })
