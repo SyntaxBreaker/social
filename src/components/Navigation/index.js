@@ -20,6 +20,9 @@ function Navigation() {
                             <Link to={`/profile/${user.uid}`}><Icon.User /> Profile</Link>
                         </li>
                         <li>
+                            <Link to={`/settings`}><Icon.Settings /> Settings</Link>
+                        </li>
+                        <li>
                             <button onClick={signOut}><Icon.LogOut/> Log out</button>
                         </li>
                     </>

@@ -1,0 +1,22 @@
+.settings {
+  margin-top: .5rem;
+
+  label, input, button {
+    margin-top: 1rem;
+  }
+
+  input {
+    color: silver;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  button {
+    width: 25%;
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 20px;
+  }
+}

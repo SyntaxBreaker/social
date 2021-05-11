@@ -7,6 +7,7 @@ import {
 import Header from "./components/Header";
 import Homepage from "./pages/Homepage";
 import Profile from "./pages/Profile";
+import Settings from './pages/Settings';
 import UserProvider from "./providers/UserProvider";
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
                   <Switch>
                       <Route path="/" exact>
                           <Homepage />
+                      </Route>
+                      <Route path="/settings" exact>
+                          <Settings />
                       </Route>
                       <Route path="/profile/:id" exact>
                           <Profile />
