@@ -1,7 +1,17 @@
 .post {
+  position: relative;
   background-color: white;
   margin: 10px 0;
   padding: 15px;
+
+  .remove__btn {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
 
   .post__information {
     display: flex;

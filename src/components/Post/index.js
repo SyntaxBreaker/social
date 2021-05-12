@@ -13,6 +13,10 @@ function Post({post}) {
     const [showModal, setShowModal] = useState(false);
     const [showComments, setShowComments] = useState(false);
 
+    const removePost = () => {
+        db.collection('posts').doc(post['id']).delete();
+    }
+
     const addLike = () => {
         db.collection('posts').doc(post['id']).update({
             likes: [...likes, user.uid]
@@ -48,6 +52,7 @@ function Post({post}) {
 
     return (
         <div className="post">
+            {post.data.authorId === user.uid && <button className="remove__btn" onClick={() => removePost()}>X</button>}
             <div className="post__information">
                 <img src={avatar} alt="avatar" />
                 <div>
