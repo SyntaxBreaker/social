@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {UserContext} from "../../providers/UserProvider";
 import './index.scss';
 
-function Comment({comment}) {
+function Comment({comment, removeComment}) {
+    const user = useContext(UserContext);
+    const {id} = comment;
+
     return (
         <div className="comment">
+            {comment.author === user.uid && <button className="remove__comment__btn" onClick={() => removeComment(id)}>X</button>}
             <div className="comment__avatar">
                 <img src={comment.avatar} />
             </div>

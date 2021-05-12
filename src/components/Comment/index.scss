@@ -1,7 +1,18 @@
 .comment {
+  position: relative;
   display: flex;
   flex-direction: row;
   margin-top: 1.2rem;
+
+  .remove__comment__btn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
 
   &__avatar {
     margin-right: 1rem;

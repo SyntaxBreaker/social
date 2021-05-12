@@ -1,10 +1,11 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {UserContext} from "../../providers/UserProvider";
 import {db} from "../../firebase/firebase";
 import Modal from "../Modal";
 import Comment from "../Comment";
 import './index.scss';
 import * as Icon from 'react-feather';
+import {v4 as uuidv4} from 'uuid'
 
 function Post({post}) {
     const user = useContext(UserContext);
@@ -13,8 +14,21 @@ function Post({post}) {
     const [showModal, setShowModal] = useState(false);
     const [showComments, setShowComments] = useState(false);
 
+    useEffect(() => {
+        console.log(comments);
+    }, [])
+
     const removePost = () => {
         db.collection('posts').doc(post['id']).delete();
+    }
+
+    const removeComment = commentId => {
+        const id = comments.indexOf(commentId);
+        comments.splice(id, 1);
+
+        db.collection('posts').doc(post['id']).update({
+            comments: [...comments]
+        })
     }
 
     const addLike = () => {
@@ -40,7 +54,7 @@ function Post({post}) {
         event.preventDefault();
 
         db.collection('posts').doc(post['id']).update({
-            comments: [...comments, {author: user.uid, message: inputValue, avatar: user.photoURL, displayName: user.displayName}]
+            comments: [...comments, {id: uuidv4(), author: user.uid, message: inputValue, avatar: user.photoURL, displayName: user.displayName}]
         })
 
         setInputValue('');
@@ -84,7 +98,7 @@ function Post({post}) {
                     </form>
                 }
             </div>
-            {(showComments && comments.length > 0) && comments.map(comment => <Comment comment={comment} key={comment.author+comment.message} />) }
+            {(showComments && comments.length > 0) && comments.map(comment => <Comment comment={comment} key={comment.id} removeComment={removeComment} />) }
             {(!user && showModal) && <Modal handleClose={handleClose} />}
         </div>
     )
