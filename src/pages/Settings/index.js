@@ -34,7 +34,7 @@ function Settings() {
     return (
         <div className="settings">
             {profileInformation && <form onSubmit={event => onSubmit(event)}>
-                <label>City:</label>
+                <label>City</label>
                 <input type="text" name="city" value={profileInformation.city} onChange={event => onChange(event)} />
                 <label>Website (Type only the domain)</label>
                 <input type="text" name="website" value={profileInformation.website} onChange={event => onChange(event)} />

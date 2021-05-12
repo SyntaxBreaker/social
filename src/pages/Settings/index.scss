@@ -6,17 +6,50 @@
   }
 
   input {
+    width: 75%;
     color: silver;
     border-radius: 10px;
     text-align: center;
   }
 
   button {
-    width: 25%;
+    width: 35%;
+    outline: none;
+    cursor: pointer;
     border: none;
     background-color: dodgerblue;
     color: white;
     border-radius: 10px;
     padding: 5px 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  .settings {
+
+    input {
+      width: 50%;
+    }
+
+    button {
+      width: 25%;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .settings {
+
+    label, input, button {
+      margin-top: 1.5rem;
+    }
+
+    input {
+      width: 30%;
+    }
+
+    button {
+      width: 15%;
+    }
   }
 }
