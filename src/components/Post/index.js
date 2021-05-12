@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {UserContext} from "../../providers/UserProvider";
 import {db} from "../../firebase/firebase";
 import Modal from "../Modal";
@@ -13,10 +13,6 @@ function Post({post}) {
     const {author, authorId, avatar, comments, createdAt, likes, postContent, shares, tags} = post.data;
     const [showModal, setShowModal] = useState(false);
     const [showComments, setShowComments] = useState(false);
-
-    useEffect(() => {
-        console.log(comments);
-    }, [])
 
     const removePost = () => {
         db.collection('posts').doc(post['id']).delete();
@@ -66,7 +62,7 @@ function Post({post}) {
 
     return (
         <div className="post">
-            {post.data.authorId === user.uid && <button className="remove__btn" onClick={() => removePost()}>X</button>}
+            {user && post.data.authorId === user.uid && <button className="remove__btn" onClick={() => removePost()}>X</button>}
             <div className="post__information">
                 <img src={avatar} alt="avatar" />
                 <div>
