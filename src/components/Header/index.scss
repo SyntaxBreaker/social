@@ -11,18 +11,6 @@ header {
     text-decoration: none;
   }
 
-  input {
-    width: 45%;
-    border-radius: 9px;
-    border: 1px solid aliceblue;
-    background-color: #eef0f2;
-    padding: 5px 10px;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
   button {
     width: 30%;
     border: none;
@@ -40,10 +28,6 @@ header {
 @media (min-width: 900px) {
   header {
     padding: .5% 5%;
-
-    input {
-      width: 25%;
-    }
 
     button {
       width: 10%;

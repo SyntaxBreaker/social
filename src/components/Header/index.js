@@ -10,7 +10,6 @@ function Header() {
     return (
         <header>
             <a href="/"><Icon.Twitter /></a>
-            <input type="text" placeholder="Search on ..." />
             {!user ? <button onClick={signInWithGoogle}>Log in</button> : <button onClick={signOut}>Log out</button>}
         </header>
     )
