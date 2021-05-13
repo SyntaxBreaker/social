@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {db} from '../../firebase/firebase';
 import {UserContext} from "../../providers/UserProvider";
 import './index.scss';
+import {Helmet} from 'react-helmet';
 
 function Settings() {
     const user = useContext(UserContext);
@@ -35,6 +36,9 @@ function Settings() {
 
     return (
         <div className="settings">
+            <Helmet>
+                <title>Settings</title>
+            </Helmet>
             {user && profileInformation && <form onSubmit={event => onSubmit(event)}>
                 <label>City</label>
                 <input type="text" name="city" value={profileInformation.city} onChange={event => onChange(event)} />

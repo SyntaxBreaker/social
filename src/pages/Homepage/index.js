@@ -5,6 +5,7 @@ import Post from "../../components/Post";
 import Navigation from "../../components/Navigation";
 import AddPost from "../../components/AddPost";
 import './index.scss';
+import {Helmet} from "react-helmet";
 
 
 function Homepage() {
@@ -30,6 +31,9 @@ function Homepage() {
 
     return (
         <main>
+            <Helmet>
+                <title>Homepage</title>
+            </Helmet>
             <div className="main__left">
                 <div className="main__left__profile">
                     {user && <img src={user.photoURL} alt="avatar" />}

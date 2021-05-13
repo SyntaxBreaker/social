@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Helmet} from "react-helmet";
 import {useParams} from 'react-router-dom';
 import {db} from '../../firebase/firebase';
 import Post from "../../components/Post";
@@ -38,21 +39,29 @@ function Profile() {
 
 
     return (
-        <div className="profile">
-            <div className="profile__information">
-                {profileInformation ? (
-                    <>
-                        <img src={profileInformation.avatar} />
-                        <h2>{profileInformation.displayName}</h2>
-                        {profileInformation.city !== null && <p><Icon.MapPin /> {profileInformation.city}</p>}
-                        {profileInformation.website !== null && <a href={`https://www.${profileInformation.website}`}><p><Icon.Globe /> {profileInformation.website}</p></a>}
-                    </>
-                ) : <h2>Profile not found</h2>}
+        <>
+            <Helmet>
+                <title>{profileInformation ? `${profileInformation.displayName}` : 'Profile not found!'}</title>
+            </Helmet>
+            <div className="profile">
+                <div className="profile__information">
+                    {profileInformation ? (
+                        <>
+                            <img src={profileInformation.avatar}/>
+                            <h2>{profileInformation.displayName}</h2>
+                            {profileInformation.city !== null && <p><Icon.MapPin/> {profileInformation.city}</p>}
+                            {profileInformation.website !== null &&
+                            <a href={`https://www.${profileInformation.website}`}><p>
+                                <Icon.Globe/> {profileInformation.website}</p></a>}
+                        </>
+                    ) : <h2>Profile not found</h2>}
+                </div>
+                <div className="profile__posts">
+                    {posts.map(post => <Post post={post} key={post.id}/>)}
+                </div>
             </div>
-            <div className="profile__posts">
-                {posts.map(post => <Post post={post} key={post.id} />)}
-            </div>
-        </div>
+        </>
+
     )
 }
 
