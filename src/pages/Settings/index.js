@@ -9,9 +9,11 @@ function Settings() {
 
     useEffect(() => {
         async function fetchProfileInformation() {
-            await db.collection("users").doc(user.uid).onSnapshot(doc => {
-                setProfileInformation(doc.data());
-            })
+            if(user !== null) {
+                await db.collection("users").doc(user.uid).onSnapshot(doc => {
+                    setProfileInformation(doc.data());
+                })
+            }
         }
 
         fetchProfileInformation();
@@ -33,7 +35,7 @@ function Settings() {
 
     return (
         <div className="settings">
-            {profileInformation && <form onSubmit={event => onSubmit(event)}>
+            {user && profileInformation && <form onSubmit={event => onSubmit(event)}>
                 <label>City</label>
                 <input type="text" name="city" value={profileInformation.city} onChange={event => onChange(event)} />
                 <label>Website (Type only the domain)</label>
