@@ -7,11 +7,10 @@ import './index.scss';
 import * as Icon from 'react-feather';
 import {v4 as uuidv4} from 'uuid'
 
-function Post({post}) {
+function Post({post, setShowModal}) {
     const user = useContext(UserContext);
     const [inputValue, setInputValue] = useState('');
     const {author, authorId, avatar, comments, createdAt, likes, postContent, shares, tags} = post.data;
-    const [showModal, setShowModal] = useState(false);
     const [showComments, setShowComments] = useState(false);
 
     const removePost = () => {
@@ -56,10 +55,6 @@ function Post({post}) {
         setInputValue('');
     }
 
-    const handleClose = () => {
-        setShowModal(false);
-    }
-
     return (
         <div className="post">
             {user && post.data.authorId === user.uid && <button className="remove__btn" onClick={() => removePost()}>X</button>}
@@ -95,7 +90,6 @@ function Post({post}) {
                 }
             </div>
             {(showComments && comments.length > 0) && comments.map(comment => <Comment comment={comment} key={comment.id} removeComment={removeComment} />) }
-            {(!user && showModal) && <Modal handleClose={handleClose} />}
         </div>
     )
 }

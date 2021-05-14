@@ -4,13 +4,14 @@ import {db} from "../../firebase/firebase";
 import Post from "../../components/Post";
 import Navigation from "../../components/Navigation";
 import AddPost from "../../components/AddPost";
-import './index.scss';
 import {Helmet} from "react-helmet";
-
+import Modal from '../../components/Modal';
+import './index.scss';
 
 function Homepage() {
     const user = useContext(UserContext);
     const [posts, setPosts] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         async function fetchPosts() {
@@ -29,6 +30,10 @@ function Homepage() {
         fetchPosts();
     }, [])
 
+    const handleClose = () => {
+        setShowModal(false);
+    }
+
     return (
         <main>
             <Helmet>
@@ -43,7 +48,8 @@ function Homepage() {
             </div>
             <div className="main__right">
                 <AddPost />
-                {posts.map(post => <Post post={post} key={post.id} />)}
+                {posts.map(post => <Post post={post} setShowModal={setShowModal} key={post.id} />)}
+                {(!user && showModal) && <Modal handleClose={handleClose} />}
             </div>
         </main>
     )

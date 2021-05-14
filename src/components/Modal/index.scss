@@ -1,5 +1,6 @@
 .modal {
   position: absolute;
+  z-index: 1;
   margin: 0 auto;
   left: 0%;
   top: 30%;
@@ -36,16 +37,16 @@
 
 @media (min-width: 900px) {
   .modal {
-    width: 70%;
+    width: 50%;
     top: 30%;
-    left: -20%;
+    left: 25%;
   }
 }
 
 @media (min-width: 1400px) {
   .modal {
-    width: 60%;
+    width: 30%;
     top: 30%;
-    left: -10%;
+    left: 35%;
   }
 }

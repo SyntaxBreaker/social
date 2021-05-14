@@ -1,15 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Helmet} from "react-helmet";
 import {useParams} from 'react-router-dom';
 import {db} from '../../firebase/firebase';
 import Post from "../../components/Post";
-import './index.scss';
 import * as Icon from 'react-feather';
+import Modal from "../../components/Modal";
+import {UserContext} from "../../providers/UserProvider";
+import './index.scss';
 
 function Profile() {
     const [posts, setPosts] = useState([]);
     const [profileInformation, setProfileInformation] = useState(null);
+    const [showModal, setShowModal] = useState(false);
     const {id} = useParams();
+    const user = useContext(UserContext);
 
     useEffect(() => {
         async function fetchProfileInformation() {
@@ -37,6 +41,10 @@ function Profile() {
         fetchPosts();
     }, [])
 
+    const handleClose = () => {
+        setShowModal(false);
+    }
+
 
     return (
         <>
@@ -57,7 +65,8 @@ function Profile() {
                     ) : <h2>Profile not found</h2>}
                 </div>
                 <div className="profile__posts">
-                    {posts.map(post => <Post post={post} key={post.id}/>)}
+                    {posts.map(post => <Post post={post} setShowModal={setShowModal} key={post.id}/>)}
+                    {(!user && showModal) && <Modal handleClose={handleClose} />}
                 </div>
             </div>
         </>
