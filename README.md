@@ -1,5 +1,5 @@
 # General info
-Social is a twitter clone made in react.
+Social is a Twitter clone made in react.
 
 # Setup
 To run this project, install it locally using npm:
@@ -9,7 +9,7 @@ npm install
 npm start
 ```
 # Screenshots
-## If user is logged in
+## If a user is logged in
 
 ### 1440px+
 #### Homepage
@@ -33,7 +33,7 @@ npm start
 #### Profile
 ![mobile_profile_loggedin](https://github.com/MetaneRuS/social/blob/master/screenshots/profile_mobile_loggedin.png)
 
-## If user is not logged in
+## If a user is not logged in
 
 ### 1440px+
 #### Homepage
