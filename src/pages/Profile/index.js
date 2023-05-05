@@ -23,7 +23,7 @@ function Profile() {
         }
 
         fetchProfileInformation()
-    }, [])
+    }, [id])
 
     useEffect(() => {
         async function fetchPosts() {
@@ -39,7 +39,7 @@ function Profile() {
         }
 
         fetchPosts();
-    }, [])
+    }, [id])
 
     const handleClose = () => {
         setShowModal(false);
@@ -55,7 +55,7 @@ function Profile() {
                 <div className="profile__information">
                     {profileInformation ? (
                         <>
-                            <img src={profileInformation.avatar}/>
+                            <img src={profileInformation.avatar} alt="User's avatar" />
                             <h2>{profileInformation.displayName}</h2>
                             {profileInformation.city !== null && <p><Icon.MapPin/> {profileInformation.city}</p>}
                             {profileInformation.website !== null &&

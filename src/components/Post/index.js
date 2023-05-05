@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {UserContext} from "../../providers/UserProvider";
 import {db} from "../../firebase/firebase";
-import Modal from "../Modal";
 import Comment from "../Comment";
 import './index.scss';
 import * as Icon from 'react-feather';
@@ -10,7 +9,7 @@ import {v4 as uuidv4} from 'uuid'
 function Post({post, setShowModal}) {
     const user = useContext(UserContext);
     const [inputValue, setInputValue] = useState('');
-    const {author, authorId, avatar, comments, createdAt, likes, postContent, shares, tags} = post.data;
+    const {author, authorId, avatar, comments, createdAt, likes, postContent} = post.data;
     const [showComments, setShowComments] = useState(false);
 
     const removePost = () => {

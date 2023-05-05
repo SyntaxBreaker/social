@@ -10,7 +10,7 @@ function Comment({comment, removeComment}) {
         <div className="comment">
             {user && comment.author === user.uid && <button className="remove__comment__btn" onClick={() => removeComment(id)}>X</button>}
             <div className="comment__avatar">
-                <img src={comment.avatar} />
+                <img src={comment.avatar} alt="User's avatar" />
             </div>
             <div>
                 <a href={`profile/${comment.author}`}><h3>@{comment.displayName}</h3></a>

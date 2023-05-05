@@ -18,7 +18,7 @@ function Settings() {
         }
 
         fetchProfileInformation();
-    }, []);
+    }, [user]);
 
     const onChange = event => {
         const {name, value} = event.target;
