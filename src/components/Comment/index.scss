@@ -1,3 +1,5 @@
+@use '../../variables';
+
 .comment {
   position: relative;
   display: flex;
@@ -9,10 +11,13 @@
       position: absolute;
       top: 0;
       right: 16px;
-      cursor: pointer;
       border: none;
       background-color: transparent;
       outline: none;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -24,7 +29,7 @@
   }
 
   &__link {
-    color: dodgerblue;
+    color: variables.$primary-color;
     text-decoration: none;
     font-size: 16px;
   }
@@ -33,6 +38,6 @@
     margin-top: 4px;
     text-overflow: clip;
     font-size: 14px;
-    color: black;
+    color: variables.$secondary-color;
   }
 }

@@ -1,3 +1,5 @@
+@use '../../variables';
+
 .header {
   width: 100%;
   display: flex;
@@ -11,7 +13,7 @@
   }
 
   &__logo {
-    color: black;
+    color: variables.$secondary-color;
     text-decoration: none;
     font-size: 30px;
     align-self: center;
@@ -24,7 +26,7 @@
   &__button {
     width: 150px;
     border: none;
-    background-color: dodgerblue;
+    background-color: variables.$primary-color;
     color: white;
     border-radius: 9px;
     padding: 5px 20px;

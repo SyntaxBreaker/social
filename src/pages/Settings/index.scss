@@ -1,6 +1,8 @@
+@use '../../variables';
+
 .settings {
   margin-top: 16px;
-  
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -32,7 +34,7 @@
     width: 35%;
     outline: none;
     border: none;
-    background-color: dodgerblue;
+    background-color: variables.$primary-color;
     color: white;
     border-radius: 10px;
     padding: 5px 20px;

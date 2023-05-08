@@ -1,3 +1,5 @@
+@use '../../variables';
+
 .post {
   position: relative;
   background-color: white;
@@ -55,12 +57,12 @@
   }
 
   &__author {
-    color: black;
+    color: variables.$secondary-color;
   }
 
   &__date {
     margin-top: 8px;
-    color: silver;
+    color: variables.$tertiary-color;
   }
 
   &__body {
@@ -88,7 +90,7 @@
   }
 
   &__input {
-    color: black;
+    color: variables.$secondary-color;
     width: 100%;
     border-radius: 8px;
     padding: 8px;
