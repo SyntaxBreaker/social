@@ -69,7 +69,7 @@ function Post({ post, setShowModal }) {
             </div>
             <div className="post__footer">
                 <div className="post__likes">
-                    {user ? likes.includes(user.uid) ? <button onClick={() => removeLike()} className="post__btn"><Icon.Heart color="red" size={18} /></button> : <button onClick={() => addLike()} className="post__btn"><Icon.Heart color="black" size={18} /></button> : <button onClick={() => setShowModal(true)} className="post__btn"><Icon.Heart color="black" size={18} /></button>}
+                    {user ? likes.includes(user.uid) ? <button onClick={() => removeLike()} className="post__btn"><Icon.Heart color="red" size={16} /></button> : <button onClick={() => addLike()} className="post__btn"><Icon.Heart color="black" size={16} /></button> : <button onClick={() => setShowModal(true)} className="post__btn"><Icon.Heart color="black" size={16} /></button>}
                     {likes.length}
                 </div>
                 <div>
