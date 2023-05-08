@@ -35,14 +35,14 @@ function Homepage() {
     }
 
     return (
-        <main>
+        <main className="main">
             <Helmet>
                 <title>Homepage</title>
             </Helmet>
             <div className="main__left">
-                <div className="main__left__profile">
-                    {user && <img src={user.photoURL} alt="avatar" />}
-                    <h2>{user ? user.displayName : 'Anonymous'}</h2>
+                <div className="main__profile">
+                    {user && <img src={user.photoURL} alt="avatar" className="main__img" />}
+                    <h2 class="main__displayName">{user ? user.displayName : 'Anonymous'}</h2>
                 </div>
                 <Navigation />
             </div>

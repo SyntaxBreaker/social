@@ -15,11 +15,11 @@ function Modal({handleClose}) {
 
     return (
         <div className="modal">
-            <h2>Hello, Friend!</h2>
-            <p>Please log in!</p>
-            <div>
-                <button onClick={login}>Log in with google!</button>
-                <button onClick={handleClose}>Close</button>
+            <h2 className="modal__heading">Hello, Friend!</h2>
+            <p className="modal__description">Please log in!</p>
+            <div class="modal__body">
+                <button onClick={login} className="modal__btn">Log in with google!</button>
+                <button onClick={handleClose} className="modal__btn">Close</button>
             </div>
         </div>
     )

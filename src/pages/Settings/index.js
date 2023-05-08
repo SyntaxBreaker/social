@@ -39,12 +39,12 @@ function Settings() {
             <Helmet>
                 <title>Settings</title>
             </Helmet>
-            {user && profileInformation && <form onSubmit={event => onSubmit(event)}>
-                <label>City</label>
-                <input type="text" name="city" value={profileInformation.city} onChange={event => onChange(event)} />
-                <label>Website (Type only the domain)</label>
-                <input type="text" name="website" value={profileInformation.website} onChange={event => onChange(event)} />
-                <button>Submit</button>
+            {user && profileInformation && <form onSubmit={event => onSubmit(event)} className="settings__form">
+                <label className="settings__label">City</label>
+                <input type="text" name="city" value={profileInformation.city} onChange={event => onChange(event)} className="settings__input" />
+                <label className="settings__label">Website (Type only the domain)</label>
+                <input type="text" name="website" value={profileInformation.website} onChange={event => onChange(event)} className="settings__input" />
+                <button className="settings__button">Submit</button>
             </form>}
         </div>
     )

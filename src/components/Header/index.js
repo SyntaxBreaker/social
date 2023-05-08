@@ -1,16 +1,16 @@
 import React, {useContext} from 'react';
 import {signInWithGoogle, signOut} from "../../firebase/firebase";
 import {UserContext} from "../../providers/UserProvider";
+import logo from '../../logo.svg';
 import './index.scss';
-import * as Icon from 'react-feather';
 
 function Header() {
     const user = useContext(UserContext);
 
     return (
-        <header>
-            <a href="/"><Icon.Twitter /></a>
-            {!user ? <button onClick={signInWithGoogle}>Log in</button> : <button onClick={signOut}>Log out</button>}
+        <header className="header">
+            <a href="/" className="header__logo"><img src={logo} className="header__img" /> Social</a>
+            {!user ? <button className="header__button" onClick={signInWithGoogle}>Log in</button> : <button className="header__button" onClick={signOut}>Log out</button>}
         </header>
     )
 }

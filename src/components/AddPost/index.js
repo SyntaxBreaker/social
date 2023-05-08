@@ -1,6 +1,6 @@
-import React, {useContext, useState} from "react";
-import {UserContext} from "../../providers/UserProvider";
-import {db} from "../../firebase/firebase";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../../providers/UserProvider";
+import { db } from "../../firebase/firebase";
 import './index.scss';
 import Modal from "../Modal";
 
@@ -48,14 +48,12 @@ function AddPost() {
     }
 
     return (
-       <>
-           {user ? <form onSubmit={event => onSubmit(event)}>
-               <input type="text" name="newPost" value={newPostContent} placeholder={`What's happening?`} onChange={(event) => onChange((event))} />
-           </form> : <form onSubmit={(event) => toggleModal(event)}>
-               <input type="text" name="newPost" value={newPostContent} placeholder={`What's happening?`} onChange={(event) => onChange((event))} />
-           </form>}
-           {(!user && showModal) && <Modal handleClose={handleClose} />}
-       </>
+        <>
+            <form onSubmit={event => user ? onSubmit(event) : toggleModal(event)} className="form">
+                <input type="text" name="newPost" value={newPostContent} placeholder={`What's happening?`} onChange={(event) => onChange((event))} className="form__input" />
+            </form>
+            {(!user && showModal) && <Modal handleClose={handleClose} />}
+        </>
     )
 }
 

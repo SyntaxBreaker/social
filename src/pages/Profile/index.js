@@ -55,14 +55,14 @@ function Profile() {
                 <div className="profile__information">
                     {profileInformation ? (
                         <>
-                            <img src={profileInformation.avatar} alt="User's avatar" />
-                            <h2>{profileInformation.displayName}</h2>
-                            {profileInformation.city !== null && <p><Icon.MapPin/> {profileInformation.city}</p>}
+                            <img src={profileInformation.avatar} alt="User's avatar" className="profile__avatar" />
+                            <h2 className="profile__displayName">{profileInformation.displayName}</h2>
+                            {profileInformation.city !== null && <p className="profile__city"><Icon.MapPin/> {profileInformation.city}</p>}
                             {profileInformation.website !== null &&
-                            <a href={`https://www.${profileInformation.website}`}><p>
+                            <a href={`https://www.${profileInformation.website}`} className="profile__link"><p className="profile__website">
                                 <Icon.Globe/> {profileInformation.website}</p></a>}
                         </>
-                    ) : <h2>Profile not found</h2>}
+                    ) : <h2 className="profile__text">Profile not found</h2>}
                 </div>
                 <div className="profile__posts">
                     {posts.map(post => <Post post={post} setShowModal={setShowModal} key={post.id}/>)}

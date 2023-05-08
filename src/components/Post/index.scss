@@ -4,56 +4,71 @@
   margin: 10px 0;
   padding: 15px;
 
-  .remove__btn {
-    position: absolute;
-    right: 1rem;
-    top: 0.5rem;
-    cursor: pointer;
+  &__btn {
+    margin-right: 5px;
     border: none;
     background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+
+    &--remove {
+      position: absolute;
+      right: 16px;
+      top: 8px;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+    }
   }
 
-  .post__information {
+  &__header {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    img {
-      border-radius: 50%;
-      height: 5rem;
-      width: auto;
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-      margin-left: .5rem;
-
-      a {
-        text-decoration: none;
-      }
-
-      .post__information__author {
-        color: black;
-      }
-
-      .post__information__date {
-        margin-top: .5rem;
-        color: silver;
-      }
-    }
   }
 
-  .post__text {
-    margin: 1.5rem 0;
-
-    p {
-      font-weight: 500;
-      font-size: 18px;
-    }
+  &__avatar {
+    border-radius: 50%;
+    height: 80px;
+    width: auto;
   }
 
-  .post__more__information {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__author {
+    color: black;
+  }
+
+  .post__date {
+    margin-top: 8px;
+    color: silver;
+  }
+
+  &__body {
+    margin: 24px 0;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__footer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -62,31 +77,17 @@
     padding: 10px;
     border-top: 1px solid silver;
     border-bottom: 1px solid silver;
-
-    div {
-      margin-right: 20px;
-
-      button {
-        margin-right: 5px;
-        border: none;
-        background-color: transparent;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &:focus {
-          outline: none;
-        }
-      }
-    }
   }
 
-  .post__comment__input {
-    input {
-      color: silver;
-      width: 100%;
-      border-radius: 10px;
-    }
+  &__likes {
+    margin-right: 20px;
+  }
+
+  &__input {
+    color: black;
+    width: 100%;
+    border-radius: 8px;
+    padding: 4px 8px;
+    border: 1px solid black;
   }
 }

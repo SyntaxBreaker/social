@@ -8,12 +8,10 @@ function Comment({comment, removeComment}) {
 
     return (
         <div className="comment">
-            {user && comment.author === user.uid && <button className="remove__comment__btn" onClick={() => removeComment(id)}>X</button>}
-            <div className="comment__avatar">
-                <img src={comment.avatar} alt="User's avatar" />
-            </div>
-            <div>
-                <a href={`profile/${comment.author}`}><h3>@{comment.displayName}</h3></a>
+            {user && comment.author === user.uid && <button className="comment__button--remove" onClick={() => removeComment(id)}>X</button>}
+                <img src={comment.avatar} alt="User's avatar" className="comment__avatar" />
+            <div className="comment__body">
+                <a href={`profile/${comment.author}`} className='comment__link'>@{comment.displayName}</a>
                 <p className="comment__message">{comment.message}</p>
             </div>
         </div>

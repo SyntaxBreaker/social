@@ -1,54 +1,47 @@
 .settings {
-  margin-top: .5rem;
-
-  label, input, button {
-    margin-top: 1rem;
+  margin-top: 16px;
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
 
-  input {
+  &__label {
+    margin-top: 8px;
+  }
+
+  &__input {
     width: 75%;
-    color: silver;
     border-radius: 10px;
     text-align: center;
+    padding: 5px 10px;
+
+    @media screen and (min-width: 900px) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 30%;
+    }
   }
 
-  button {
+  &__button {
+    margin-top: 16px;
     width: 35%;
     outline: none;
-    cursor: pointer;
     border: none;
     background-color: dodgerblue;
     color: white;
     border-radius: 10px;
     padding: 5px 20px;
-  }
-}
 
-@media (min-width: 900px) {
-  .settings {
-
-    input {
-      width: 50%;
-    }
-
-    button {
+    @media screen and (min-width: 900px) {
       width: 25%;
     }
-  }
-}
 
-@media (min-width: 1440px) {
-  .settings {
-
-    label, input, button {
-      margin-top: 1.5rem;
-    }
-
-    input {
-      width: 30%;
-    }
-
-    button {
+    @media screen and (min-width: 1440px) {
       width: 15%;
     }
   }

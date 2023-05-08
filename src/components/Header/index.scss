@@ -1,18 +1,28 @@
-header {
+.header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1% 5%;
+  padding: 8px 16px;
   background-color: white;
 
-  a {
-    color: #0466c8;
-    text-decoration: none;
+  @media (min-width: 900px) {
+    padding: 8px 48px;
   }
 
-  button {
-    width: 30%;
+  &__logo {
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    align-self: center;
+  }
+
+  &__img {
+    height: 30px;
+  }
+
+  &__button {
+    width: 150px;
     border: none;
     background-color: dodgerblue;
     color: white;
@@ -21,16 +31,6 @@ header {
 
     &:focus {
       outline: none;
-    }
-  }
-}
-
-@media (min-width: 900px) {
-  header {
-    padding: .5% 5%;
-
-    button {
-      width: 15%;
     }
   }
 }
