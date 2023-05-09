@@ -39,13 +39,13 @@ function Homepage() {
             <Helmet>
                 <title>Homepage</title>
             </Helmet>
-            <div className="main__left">
+            {user && <div className="main__left">
                 <div className="main__profile">
                     {user && <img src={user.photoURL} alt="avatar" className="main__img" />}
-                    <h2 class="main__displayName">{user ? user.displayName : 'Anonymous'}</h2>
+                    <h2 class="main__displayName">{user.displayName}</h2>
                 </div>
                 <Navigation />
-            </div>
+            </div>}
             <div className="main__right">
                 <AddPost />
                 {posts.map(post => <Post post={post} setShowModal={setShowModal} key={post.id} />)}

@@ -14,19 +14,15 @@ function Navigation() {
                 <li className="navigation__item">
                     <Link to="/" className="navigation__link"><Icon.Home /> Home</Link>
                 </li>
-                {user &&
-                    <>
-                        <li className="navigation__item">
-                            <Link to={`/profile/${user.uid}`} className="navigation__link"><Icon.User /> Profile</Link>
-                        </li>
-                        <li className="navigation__item">
-                            <Link to={`/settings`} className="navigation__link"><Icon.Settings /> Settings</Link>
-                        </li>
-                        <li className="navigation__item">
-                            <button onClick={signOut} className="navigation__btn"><Icon.LogOut /> Log out</button>
-                        </li>
-                    </>
-                }
+                <li className="navigation__item">
+                    <Link to={`/profile/${user.uid}`} className="navigation__link"><Icon.User /> Profile</Link>
+                </li>
+                <li className="navigation__item">
+                    <Link to={`/settings`} className="navigation__link"><Icon.Settings /> Settings</Link>
+                </li>
+                <li className="navigation__item">
+                    <button onClick={signOut} className="navigation__btn"><Icon.LogOut /> Log out</button>
+                </li>
             </ul>
         </div>
     )
