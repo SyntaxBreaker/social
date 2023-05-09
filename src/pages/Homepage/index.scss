@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: row;
-  padding: 16px;
+  padding: 32px;
   gap: 16px;
 
   &__left {
@@ -38,7 +38,7 @@
     min-height: 100%;
 
     @media (min-width: 900px) {
-      width: 65%;
+      width: 70%;
     }
   }
 }
