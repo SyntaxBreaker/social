@@ -10,5 +10,5 @@ npm start
 ```
 ## Technologies Used
 - React
-- SASS
+- SCSS
 - Firebase
