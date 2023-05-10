@@ -30,5 +30,15 @@
     &:focus {
       outline: none;
     }
+
+    &--menu {
+      border: none;
+      background-color: transparent;
+      font-size: 32px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
